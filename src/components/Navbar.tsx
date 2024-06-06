@@ -14,6 +14,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import { ModeToggle } from './ModeToggle';
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -54,13 +55,13 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Navbar() {
     return (
-        <NavigationMenu>
+        <NavigationMenu className="mt-8 mx-auto">
             <NavigationMenuList>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                            <ListItem href="/docs" title="Introduction">
+                            <ListItem href="/" title="Introduction">
                                 Re-usable components built using Radix UI and Tailwind
                                 CSS.
                             </ListItem>
@@ -95,9 +96,19 @@ export function Navbar() {
                 <NavigationMenuItem>
                     <Link href="/payments" legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Documentation
+                            Payments
                         </NavigationMenuLink>
                     </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Link href="/login" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            login
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <ModeToggle />
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
